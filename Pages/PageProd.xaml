@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:abaevapppps.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="320" d:DesignWidth="800"
-      Title="PageProd">
+      Title="PageProd" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,7 +14,18 @@
             <ColumnDefinition Width="107*"/>
         </Grid.ColumnDefinitions>
         <TextBlock FontSize="25" Grid.ColumnSpan="2">Продукты</TextBlock>
-        <DataGrid Margin="10,57,109.773,27"></DataGrid>
+        <DataGrid Margin="10,49,69,35" Name="DgrProd" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+               <DataGridTextColumn Header="Название продукта" Binding="{Binding Name}" Width="150">
+               </DataGridTextColumn>
+                <DataGridTextColumn Header="Цена продукта" Binding="{Binding Price}" Width="150">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            
+
+
+        </DataGrid>
+        
         <StackPanel Grid.Column="1">
             <TextBlock FontSize="25"  Grid.Column="1">Добавьте свой продукт</TextBlock>
         <TextBlock FontSize="25"  Grid.Column="1">Название</TextBlock>

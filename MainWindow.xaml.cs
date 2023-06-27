@@ -28,5 +28,18 @@ namespace abaevapppps
             FrmMain.Navigate(new Pages.PageAuto());
             DbConnect.entObj = new AbaevAlexEntities();
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrmMain.GoBack();
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Вы на начальной странице!");  
+            }
+            
+        }
     }
 }

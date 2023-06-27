@@ -56,12 +56,42 @@ namespace abaevapppps.Pages
                 {
                     MessageBox.Show("Ошибка работы приложения: " + ex.Message.ToString(), "Критический сбой работы приложения", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
+
+            }
+            if (Visibility == Visibility.Visible)
+            {
+                DbConnect.entObj.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
             }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            var DocForRemoving = DgrProd.SelectedItems.Cast<Products>().ToList();
+            try
+            {
+                DbConnect.entObj.Products.RemoveRange(DocForRemoving);
+                DbConnect.entObj.SaveChanges();
+                MessageBox.Show("Данные удалены.");
+                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Подтвердите удаление " + ex.Message.ToString(),
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
         }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                DbConnect.entObj.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
+            }
+        }
+
+        
     }
 }

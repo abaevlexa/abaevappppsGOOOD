@@ -63,5 +63,21 @@ namespace abaevapppps.Pages
             this.NavigationService.Navigate(uri);
            
         }
+
+        private void PsbPas_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (TxbPas.Text == PsbPas.Password)
+            {
+                BtnReg.IsEnabled = true;
+                PsbPas.Background = Brushes.LightGreen;
+                PsbPas.BorderBrush = Brushes.DarkGreen;
+            }
+            else
+            {
+                BtnReg.IsEnabled = false;
+                PsbPas.Background = Brushes.LightCoral;
+                PsbPas.BorderBrush = Brushes.DarkRed;
+            }
+        }
     }
 }
