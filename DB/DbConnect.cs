@@ -8,6 +8,6 @@ namespace abaevapppps.DB
 {
     class DbConnect
     {
-        public static AbaevAlexEntities entObj;
+        public static FilarmonyDBEntities entObj;
     }
 }

@@ -26,7 +26,7 @@ namespace abaevapppps
         {
             InitializeComponent();
             FrmMain.Navigate(new Pages.PageAuto());
-            DbConnect.entObj = new AbaevAlexEntities();
+            DbConnect.entObj = new FilarmonyDBEntities();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

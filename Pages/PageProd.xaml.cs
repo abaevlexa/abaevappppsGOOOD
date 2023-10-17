@@ -28,9 +28,9 @@ namespace abaevapppps.Pages
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (DbConnect.entObj.Products.Count(x => x.Name == TxbName.Text) > 0)
+            if (DbConnect.entObj.Concert.Count(x => x.Name == TxbName.Text) > 0)
             {
-                MessageBox.Show("Такой продукт уже есть",
+                MessageBox.Show("Такой концерт уже есть",
                 "Уведомление",
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
@@ -40,14 +40,15 @@ namespace abaevapppps.Pages
             {
                 try
                 {
-                    Products prodObj = new Products()
+                    Concert concertObj = new Concert()
                     {
                         Name = TxbName.Text,
-                        Price = Convert.ToInt32(TxbPrice.Text)
+                        Price = Convert.ToInt32(TxbPrice.Text),
+                        Date = Convert.ToDateTime(TxbDate.Text)
                     };
-                    DbConnect.entObj.Products.Add(prodObj);
+                    DbConnect.entObj.Concert.Add(concertObj);
                     DbConnect.entObj.SaveChanges();
-                    MessageBox.Show("Продукт создан",
+                    MessageBox.Show("Концерт создан",
                     "Уведомление",
                     MessageBoxButton.OK,
                     MessageBoxImage.Information);
@@ -61,19 +62,19 @@ namespace abaevapppps.Pages
             if (Visibility == Visibility.Visible)
             {
                 DbConnect.entObj.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
+                DgrProd.ItemsSource = DbConnect.entObj.Concert.ToList();
             }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var DocForRemoving = DgrProd.SelectedItems.Cast<Products>().ToList();
+            var DocForRemoving = DgrProd.SelectedItems.Cast<Concert>().ToList();
             try
             {
-                DbConnect.entObj.Products.RemoveRange(DocForRemoving);
+                DbConnect.entObj.Concert.RemoveRange(DocForRemoving);
                 DbConnect.entObj.SaveChanges();
                 MessageBox.Show("Данные удалены.");
-                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
+                DgrProd.ItemsSource = DbConnect.entObj.Concert.ToList();
             } catch (Exception ex)
             {
                 MessageBox.Show("Подтвердите удаление " + ex.Message.ToString(),
@@ -88,7 +89,7 @@ namespace abaevapppps.Pages
             if (Visibility == Visibility.Visible)
             {
                 DbConnect.entObj.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                DgrProd.ItemsSource = DbConnect.entObj.Products.ToList();
+                DgrProd.ItemsSource = DbConnect.entObj.Concert.ToList();
             }
         }
 

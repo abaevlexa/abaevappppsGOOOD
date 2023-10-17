@@ -28,7 +28,7 @@ namespace abaevapppps.Pages
 
         private void BtnReg_Click(object sender, RoutedEventArgs e)
         {
-            if (DbConnect.entObj.Users.Count(x => x.Name == TxbLog.Text) > 0)
+            if (DbConnect.entObj.User.Count(x => x.Name == TxbLog.Text) > 0)
             {
                 MessageBox.Show("Такой пользователь уже есть",
                 "Уведомление",
@@ -40,12 +40,13 @@ namespace abaevapppps.Pages
             {
                 try
                 {
-                    Users userObj = new Users()
+                    User userObj = new User()
                     {
+                        IdRole = 2,
                         Name = TxbLog.Text,
                         Password = TxbPas.Text
                     };
-                    DbConnect.entObj.Users.Add(userObj);
+                    DbConnect.entObj.User.Add(userObj);
                     DbConnect.entObj.SaveChanges();
                     MessageBox.Show("Пользователь создан",
                     "Уведомление",

@@ -30,7 +30,7 @@ namespace abaevapppps.Pages
         {
             try
             {
-                var userObj = DbConnect.entObj.Users.FirstOrDefault(x =>
+                var userObj = DbConnect.entObj.User.FirstOrDefault(x =>
                 x.Name == TxbLog.Text && x.Password == TxbPas.Text);
 
                 if (userObj == null)
@@ -40,18 +40,21 @@ namespace abaevapppps.Pages
                     Uri uri = new Uri("/Pages/PageReg.xaml", UriKind.Relative);
                     this.NavigationService.Navigate(uri);
                 }
-                else
+                else if (userObj.IdRole == 1)
                 {
                     
                             MessageBox.Show("Здравствуйте , " + userObj.Name + " !", "Уведомление",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                             Uri uri = new Uri("/Pages/PageProd.xaml", UriKind.Relative);
                             this.NavigationService.Navigate(uri);
-                            
-                        
-                       
-                      
-                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Здравствуйте , " + userObj.Name + " !", "Уведомление",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    Uri uri = new Uri("/Pages/PageUser.xaml", UriKind.Relative);
+                    this.NavigationService.Navigate(uri);
                 }
             }
             catch (Exception ex)
