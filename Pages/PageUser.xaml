@@ -14,13 +14,13 @@
             <ColumnDefinition Width="107*"/>
         </Grid.ColumnDefinitions>
         <TextBlock FontSize="25" Grid.ColumnSpan="2">Концерты</TextBlock>
-        <DataGrid Margin="10,49,29,35" Name="DgrProd" AutoGenerateColumns="False">
+        <DataGrid Margin="10,49,10,35" Name="DgrProd" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название концерта" Binding="{Binding Name}" Width="120">
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Цена концерта" Binding="{Binding Price}" Width="110">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Дата концерта" Binding="{Binding Date}" Width="100">
+                <DataGridTextColumn Header="Дата концерта" Binding="{Binding Date}" Width="120">
                 </DataGridTextColumn>
             </DataGrid.Columns>
 
@@ -30,14 +30,12 @@
 
         <StackPanel Grid.Column="1">
             <TextBlock FontSize="25"  Grid.Column="1">Купить билет на концерт</TextBlock>
-            <TextBlock FontSize="25"  Grid.Column="1">Название</TextBlock>
+            <TextBlock FontSize="25"  Grid.Column="1">Введите название из списка</TextBlock>
             <TextBox Name="TxbName"  Grid.Column="1"></TextBox>
 
-            <TextBlock FontSize="25"  Grid.Column="1">Цена</TextBlock>
+            <TextBlock FontSize="25"  Grid.Column="1">Введите количество билетов</TextBlock>
             <TextBox Name="TxbPrice"  Grid.Column="1"></TextBox>
-            <TextBlock FontSize="25"  Grid.Column="1">Дата</TextBlock>
-            <TextBox Name="TxbDate"  Grid.Column="1"></TextBox>
-            <Button Name="BtnBuy"  FontSize="20" Grid.Column="1" >Купить</Button>
+            <Button Name="BtnBuy"  FontSize="20" Grid.Column="1" Click="BtnBuy_Click" >Оформить заказ</Button>
         </StackPanel>
 
     </Grid>

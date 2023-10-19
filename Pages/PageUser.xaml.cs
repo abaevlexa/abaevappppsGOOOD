@@ -34,5 +34,23 @@ namespace abaevapppps.Pages
                 DgrProd.ItemsSource = DbConnect.entObj.Concert.ToList();
             }
         }
+
+        private void BtnBuy_Click(object sender, RoutedEventArgs e)
+        {
+            if (DbConnect.entObj.Concert.Count(x => x.Name == TxbName.Text) > 0)
+            {
+                MessageBox.Show("Вы оформили заказ билетов, ожидайте.",
+                "Уведомление",
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Такого концерта не существует.",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+        }
     }
 }
