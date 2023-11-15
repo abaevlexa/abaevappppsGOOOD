@@ -116,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FilarmonyDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FilarmonyDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Concert" EntityType="Self.Concert" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -131,7 +131,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище FilarmonyDBModelContainer" CdmEntityContainer="FilarmonyDBEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FilarmonyDBModelContainer" CdmEntityContainer="FilarmonyDBEntities1">
           <EntitySetMapping Name="Concert">
             <EntityTypeMapping TypeName="FilarmonyDBModel.Concert">
               <MappingFragment StoreEntitySet="Concert">

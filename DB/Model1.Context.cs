@@ -13,10 +13,10 @@ namespace abaevapppps.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FilarmonyDBEntities : DbContext
+    public partial class FilarmonyDBEntities1 : DbContext
     {
-        public FilarmonyDBEntities()
-            : base("name=FilarmonyDBEntities")
+        public FilarmonyDBEntities1()
+            : base("name=FilarmonyDBEntities1")
         {
         }
     
