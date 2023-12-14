@@ -21,36 +21,113 @@ namespace abaevapppps.Pages
     /// </summary>
     public partial class PageUser : Page
     {
+        private List<Detail> allItems;
         public PageUser()
         {
+            
             InitializeComponent();
+            allItems = DbConnect.entObj.Detail.ToList();
+            MaterialList.ItemsSource = allItems.ToList();
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
-            {
-                DbConnect.entObj.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                DgrProd.ItemsSource = DbConnect.entObj.Concert.ToList();
-            }
+           
         }
 
         private void BtnBuy_Click(object sender, RoutedEventArgs e)
         {
-            if (DbConnect.entObj.Concert.Count(x => x.Name == TxbName.Text) > 0)
+            
+        }
+        private void TxbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
             {
-                MessageBox.Show("Вы оформили заказ билетов, ожидайте.",
-                "Уведомление",
-                MessageBoxButton.OK,
-                MessageBoxImage.Information);
+                MaterialList.ItemsSource = DB.DbConnect.entObj.Detail.Where(x => x.Name.Contains(TxbSearch.Text)).Take(15).ToList();
+                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Detail.Where(x => x.Name.Contains(TxbSearch.Text)).Count().ToString();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Такого концерта не существует.",
-                    "Уведомление",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
+                throw;
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MaterialList.ItemsSource = allItems.ToList();
+            try
+            {
+                CmbFilter.ItemsSource = DB.DbConnect.entObj.DetailType.ToList();
+                CmbFilter.DisplayMemberPath = "Title";
+                CmbSort.SelectedIndex = 0;
+                CmbFilter.SelectedIndex = 0;
+
+                MaterialList.ItemsSource = DB.DbConnect.entObj.Detail.ToList();
+                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Detail.Count().ToString();
+            }
+            catch (Exception except)
+            {
+                MessageBox.Show(except.Message, "Упс, что-то пошло не так!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+        private void CmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CmbSort.SelectedIndex == 0)
+            {
+                List<Detail> sortMaterials = allItems.OrderBy(x => x.Name).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 1)
+            {
+                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Name).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 2)
+            {
+                List<Detail> sortMaterials = allItems.OrderBy(x => x.Price).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 3)
+            {
+                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Price).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 4)
+            {
+                List<Detail> sortMaterials = allItems.OrderBy(x => x.Date).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 5)
+            {
+                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Date).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+        }
+
+        private void CmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            if (CmbSort.SelectedIndex == 0)
+            {
+                List<Detail> sortMaterials = allItems.OrderBy(x => x.IdDetailType).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 1)
+            {
+                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.IdDetailType).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            else if (CmbSort.SelectedIndex == 2)
+            {
+                List<Detail> sortMaterials = allItems.OrderBy(x => x.IdDetailType).ToList();
+                MaterialList.ItemsSource = sortMaterials;
+            }
+            */
+        }
+
+        private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

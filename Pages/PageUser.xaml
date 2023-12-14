@@ -9,34 +9,62 @@
       Title="PageUser" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="93*"/>
-            <ColumnDefinition Width="107*"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock FontSize="25" Grid.ColumnSpan="2">Концерты</TextBlock>
-        <DataGrid Margin="10,49,10,35" Name="DgrProd" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Название концерта" Binding="{Binding Name}" Width="120">
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Цена концерта" Binding="{Binding Price}" Width="110">
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Дата концерта" Binding="{Binding Date}" Width="120">
-                </DataGridTextColumn>
-            </DataGrid.Columns>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Text="1/1" 
+                   Name="ResultTxb" 
+                   FontSize="16" 
+                   Grid.Row="0" 
+                   VerticalAlignment="Center"
+                   Margin="10 0 0 0"/>
 
+        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center">
 
-        </DataGrid>
+            <TextBox Width="300" FontSize="16" Name="TxbSearch" TextChanged="TxbSearch_TextChanged"/>
 
-        <StackPanel Grid.Column="1">
-            <TextBlock FontSize="25"  Grid.Column="1">Купить билет на концерт</TextBlock>
-            <TextBlock FontSize="25"  Grid.Column="1">Введите название из списка</TextBlock>
-            <TextBox Name="TxbName"  Grid.Column="1"></TextBox>
+            <ComboBox Name="CmbSort" SelectionChanged="CmbSort_SelectionChanged"  Margin="5 0" Width="150">
+                <ComboBoxItem Content="Все типы"/>
+                <ComboBoxItem Content="Наименование | По возврастанию"/>
+                <ComboBoxItem Content="Наименование | По убыванию"/>
+                <ComboBoxItem Content="Стоимость | По возврастанию"/>
+                <ComboBoxItem Content="Стоимость | По убыванию"/>
 
-            <TextBlock FontSize="25"  Grid.Column="1">Введите количество билетов</TextBlock>
-            <TextBox Name="TxbPrice"  Grid.Column="1"></TextBox>
-            <Button Name="BtnBuy"  FontSize="20" Grid.Column="1" Click="BtnBuy_Click" >Оформить заказ</Button>
+            </ComboBox>
+
+            <ComboBox Name="CmbFilter" Width="150" SelectionChanged="CmbFilter_SelectionChanged">
+                <ComboBoxItem Content="Насосы"/>
+                <ComboBoxItem Content="Датчики"/>
+                <ComboBoxItem Content="Реле"/>
+
+            </ComboBox>
         </StackPanel>
+
+        <ListView x:Name="MaterialList" Grid.Row="1" SelectionChanged="MaterialList_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="150" Width="150"
+                                   Source="{Binding Image}"/>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding ID}" FontSize="40"/>
+                                <Label Content=" | " FontSize="20"/>
+                                <Label Content="{Binding Name}" FontSize="30" FontWeight="Bold"/>
+                            </StackPanel>
+                            <Label Content="{Binding Price}" ContentStringFormat="Цена: {0} руб." FontWeight="Bold" FontSize="16" ></Label>
+                            <Label Content="{Binding Date}" ContentStringFormat="Дата изготовления: {0} ." ></Label>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
 
     </Grid>
 </Page>

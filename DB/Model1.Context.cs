@@ -13,10 +13,10 @@ namespace abaevapppps.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FilarmonyDBEntities1 : DbContext
+    public partial class IMPULSEDBEntities : DbContext
     {
-        public FilarmonyDBEntities1()
-            : base("name=FilarmonyDBEntities1")
+        public IMPULSEDBEntities()
+            : base("name=IMPULSEDBEntities")
         {
         }
     
@@ -25,7 +25,8 @@ namespace abaevapppps.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Concert> Concert { get; set; }
+        public virtual DbSet<Detail> Detail { get; set; }
+        public virtual DbSet<DetailType> DetailType { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
