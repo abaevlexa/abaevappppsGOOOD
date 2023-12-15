@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="IMPULSEDBModel.Detail" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="IMPULSEDBModel.DetailType" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="IMPULSEDBModel.Role" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMPULSEDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMPULSEDBModel.sysdiagrams" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="IMPULSEDBModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="IMPULSEDBModel.FK_Detail_DetailType" ManuallyRouted="false" />
         <AssociationConnector Association="IMPULSEDBModel.FK_User_Role" ManuallyRouted="false" />

@@ -55,10 +55,10 @@ namespace abaevapppps.Pages
             try
             {
                 CmbFilter.ItemsSource = DB.DbConnect.entObj.DetailType.ToList();
-                CmbFilter.DisplayMemberPath = "Title";
+                CmbFilter.DisplayMemberPath = "Name";
                 CmbSort.SelectedIndex = 0;
                 CmbFilter.SelectedIndex = 0;
-
+               
                 MaterialList.ItemsSource = DB.DbConnect.entObj.Detail.ToList();
                 ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Detail.Count().ToString();
             }
