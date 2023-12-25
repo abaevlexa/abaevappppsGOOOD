@@ -12,15 +12,15 @@ namespace abaevapppps.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Detail
+    public partial class Worker
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<int> Salary { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string Image { get; set; }
-        public int IdDetailType { get; set; }
+        public Nullable<int> IdWorkerType { get; set; }
     
-        public virtual DetailType DetailType { get; set; }
+        public virtual WorkerType WorkerType { get; set; }
     }
 }

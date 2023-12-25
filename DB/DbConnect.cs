@@ -8,6 +8,6 @@ namespace abaevapppps.DB
 {
     class DbConnect
     {
-        public static IMPULSEDBEntities entObj;
+        public static ImpulsEntities entObj;
     }
 }

@@ -13,10 +13,10 @@ namespace abaevapppps.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class IMPULSEDBEntities : DbContext
+    public partial class ImpulsEntities : DbContext
     {
-        public IMPULSEDBEntities()
-            : base("name=IMPULSEDBEntities")
+        public ImpulsEntities()
+            : base("name=ImpulsEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace abaevapppps.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Detail> Detail { get; set; }
-        public virtual DbSet<DetailType> DetailType { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Worker> Workers { get; set; }
+        public virtual DbSet<WorkerType> WorkerTypes { get; set; }
     }
 }

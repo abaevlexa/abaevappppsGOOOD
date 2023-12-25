@@ -30,18 +30,18 @@ namespace abaevapppps.Pages
         {
             try
             {
-                Detail userObj = new Detail()
+                Worker userObj = new Worker()
                 {
                     Name = TxbTitle.Text,
                     Date = Convert.ToDateTime(TxbDate.Text),
-                    Price = Convert.ToInt32(TxbCost.Text),
+                    Salary = Convert.ToInt32(TxbCost.Text),
                     Image = TxbImage.Text,
-                    IdDetailType = Convert.ToInt32(TxbDetailId.Text)
+                    IdWorkerType = Convert.ToInt32(TxbDetailId.Text)
                 };
-                DbConnect.entObj.Detail.Add(userObj);
+                DbConnect.entObj.Workers.Add(userObj);
                 DbConnect.entObj.SaveChanges();
 
-                MessageBox.Show("Материал добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Сотрудник добавлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {

@@ -9,10 +9,14 @@
       Title="PageProd" >
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1.08086391056892E+16*"/>
+            <RowDefinition Height="3.6028797018964E+16*"/>
+            <RowDefinition Height="3.6028797018964E+15*"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="1/1" 
@@ -20,34 +24,15 @@
                    FontSize="16" 
                    Grid.Row="0" 
                    VerticalAlignment="Center"
-                   Margin="10 0 0 0"/>
+                   Margin="12,17,512,29" Grid.Column="1"/>
 
-        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Center" Grid.Column="1" Margin="172,19,400,19"/>
 
-            <TextBox Width="300" FontSize="16" Name="TxbSearch" TextChanged="TxbSearch_TextChanged"/>
-
-            <ComboBox Name="CmbSort" SelectionChanged="CmbSort_SelectionChanged"  Margin="5 0" Width="150">
-                <ComboBoxItem Content="Все типы"/>
-                <ComboBoxItem Content="Наименование | По возврастанию"/>
-                <ComboBoxItem Content="Наименование | По убыванию"/>
-                <ComboBoxItem Content="Стоимость | По возврастанию"/>
-                <ComboBoxItem Content="Стоимость | По убыванию"/>
-                
-            </ComboBox>
-
-            <ComboBox Name="CmbFilter" Width="150" SelectionChanged="CmbFilter_SelectionChanged">
-                <ComboBoxItem Content="Насосы"/>
-                <ComboBoxItem Content="Датчики"/>
-                <ComboBoxItem Content="Реле"/>
-
-            </ComboBox>
-        </StackPanel>
-
-        <ListView x:Name="MaterialList" Grid.Row="1" SelectionChanged="MaterialList_SelectionChanged">
+        <ListView x:Name="MaterialList" SelectionChanged="MaterialList_SelectionChanged" Margin="10,46,0,0" Grid.RowSpan="2" Grid.Column="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="150" Width="150"
+                        <Image Height="100" Width="100"
                                    Source="{Binding Image}"/>
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
@@ -55,21 +40,38 @@
                                 <Label Content=" | " FontSize="20"/>
                                 <Label Content="{Binding Name}" FontSize="30" FontWeight="Bold"/>
                             </StackPanel>
-                            <Label Content="{Binding Price}" ContentStringFormat="Цена: {0} руб." FontWeight="Bold" FontSize="16" ></Label>
-                            <Label Content="{Binding Date}" ContentStringFormat="Дата изготовления: {0} ." ></Label>
+                            <Label Content="{Binding Salary}" ContentStringFormat="Зарплата: {0} руб." FontWeight="Bold" FontSize="16" ></Label>
+                            <Label Content="{Binding Date}" ContentStringFormat="Дата регистрации: {0} ." ></Label>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Создать"
-            x:Name="BtnNext_Copy"
-            Width="80"
-                Height="30"
-            HorizontalAlignment="Right" Margin="0,16,5,12" Click="BtnNext_Copy_Click"/>
 
-
-
-
+        <StackPanel HorizontalAlignment="Left" Height="233"  Grid.Row="1" VerticalAlignment="Top" Width="226" Orientation="Vertical" Grid.RowSpan="2">
+            <TextBox FontSize="16" x:Name="TxbSearch" TextChanged="TxbSearch_TextChanged"  SelectionOpacity="0.5" HorizontalAlignment="Left" Width="196" Height="41" Margin="23,0,0,0"/>
+            <TextBlock FontSize="15" Text="" />
+            <ComboBox x:Name="CmbSort" SelectionChanged="CmbSort_SelectionChanged" Margin="22,0,9,0" Height="32" >
+                <ComboBoxItem Content="Все типы"/>
+                <ComboBoxItem Content="Наименование | По возврастанию"/>
+                <ComboBoxItem Content="Наименование | По убыванию"/>
+                <ComboBoxItem Content="Зарплата | По возврастанию"/>
+                <ComboBoxItem Content="Зарплата | По убыванию"/>
+            </ComboBox>
+            <TextBlock FontSize="15" Text="" />
+            <ComboBox x:Name="CmbFilter" SelectionChanged="CmbFilter_SelectionChanged" Margin="22,0,10,0" Height="35">
+                <ComboBoxItem Content="Инженер-электроник"/>
+                <ComboBoxItem Content="Инженер-математик"/>
+                <ComboBoxItem Content="Инженер-технолог"/>
+                <ComboBoxItem Content="Инженер-конструктор"/>
+                <ComboBoxItem Content="Начальник цеха"/>
+                <ComboBoxItem Content="Старший мастер"/>
+            </ComboBox>
+            <TextBlock FontSize="15" Text="" Height="13" />
+            <Button Content="Добавить"
+            x:Name="BtnNext_Copy" Height="29" Click="BtnNext_Copy_Click" Margin="31,0,112,0"/>
+            <Button Content="Удалить"
+            x:Name="BtnDelete_Copy" Height="30" Click="BtnDelete_Click" Margin="126,0,16,0" />
+        </StackPanel>
     </Grid>
 </Page>

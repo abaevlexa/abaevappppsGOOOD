@@ -26,7 +26,7 @@ namespace abaevapppps
         {
             InitializeComponent();
             FrmMain.Navigate(new Pages.PageAuto());
-            DbConnect.entObj = new IMPULSEDBEntities();
+            DbConnect.entObj = new ImpulsEntities();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -40,6 +40,19 @@ namespace abaevapppps
                 MessageBox.Show("Вы на начальной странице!");  
             }
             
+        }
+
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FrmMain.Navigate(new Pages.InfoPage());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка, сбой приложения!");
+            }
         }
     }
 }

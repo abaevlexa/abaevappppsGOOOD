@@ -30,7 +30,7 @@ namespace abaevapppps.Pages
         {
             try
             {
-                var userObj = DbConnect.entObj.User.FirstOrDefault(x =>
+                var userObj = DbConnect.entObj.Users.FirstOrDefault(x =>
                 x.Name == TxbLog.Text && x.Password == TxbPas.Text);
 
                 if (userObj == null)

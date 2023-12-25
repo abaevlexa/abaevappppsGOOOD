@@ -21,11 +21,11 @@ namespace abaevapppps.Pages
     /// </summary>
     public partial class PageProd : Page
     {
-        private List<Detail> allItems;
+        private List<Worker> allItems;
         public PageProd()
         {
             InitializeComponent();
-            allItems = DbConnect.entObj.Detail.ToList();
+            allItems = DbConnect.entObj.Workers.ToList();
             MaterialList.ItemsSource = allItems.ToList();
         }
 
@@ -40,8 +40,8 @@ namespace abaevapppps.Pages
         {
             try
             {
-                MaterialList.ItemsSource = DB.DbConnect.entObj.Detail.Where(x => x.Name.Contains(TxbSearch.Text)).Take(15).ToList();
-                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Detail.Where(x => x.Name.Contains(TxbSearch.Text)).Count().ToString();
+                MaterialList.ItemsSource = DB.DbConnect.entObj.Workers.Where(x => x.Name.Contains(TxbSearch.Text)).Take(15).ToList();
+                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Workers.Where(x => x.Name.Contains(TxbSearch.Text)).Count().ToString();
             }
             catch (Exception ex)
             {
@@ -54,13 +54,13 @@ namespace abaevapppps.Pages
             MaterialList.ItemsSource = allItems.ToList();
             try
             {
-                CmbFilter.ItemsSource = DB.DbConnect.entObj.DetailType.ToList();
+                CmbFilter.ItemsSource = DB.DbConnect.entObj.WorkerTypes.ToList();
                 CmbFilter.DisplayMemberPath = "Name";
                 CmbSort.SelectedIndex = 0;
                 CmbFilter.SelectedIndex = 0;
                
-                MaterialList.ItemsSource = DB.DbConnect.entObj.Detail.ToList();
-                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Detail.Count().ToString();
+                MaterialList.ItemsSource = DB.DbConnect.entObj.Workers.ToList();
+                ResultTxb.Text = MaterialList.Items.Count + "/" + DB.DbConnect.entObj.Workers.Count().ToString();
             }
             catch (Exception except)
             {
@@ -71,32 +71,32 @@ namespace abaevapppps.Pages
         {
             if (CmbSort.SelectedIndex == 0)
             {
-                List<Detail> sortMaterials = allItems.OrderBy(x => x.Name).ToList();
+                List<Worker> sortMaterials = allItems.OrderBy(x => x.Name).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
             else if (CmbSort.SelectedIndex == 1)
             {
-                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Name).ToList();
+                List<Worker> sortMaterials = allItems.OrderByDescending(x => x.Name).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
             else if (CmbSort.SelectedIndex == 2)
             {
-                List<Detail> sortMaterials = allItems.OrderBy(x => x.Price).ToList();
+                List<Worker> sortMaterials = allItems.OrderBy(x => x.Salary).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
             else if (CmbSort.SelectedIndex == 3)
             {
-                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Price).ToList();
+                List<Worker> sortMaterials = allItems.OrderByDescending(x => x.Salary).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
             else if (CmbSort.SelectedIndex == 4)
             {
-                List<Detail> sortMaterials = allItems.OrderBy(x => x.Date).ToList();
+                List<Worker> sortMaterials = allItems.OrderBy(x => x.Date).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
             else if (CmbSort.SelectedIndex == 5)
             {
-                List<Detail> sortMaterials = allItems.OrderByDescending(x => x.Date).ToList();
+                List<Worker> sortMaterials = allItems.OrderByDescending(x => x.Date).ToList();
                 MaterialList.ItemsSource = sortMaterials;
             }
         }
@@ -125,6 +125,11 @@ namespace abaevapppps.Pages
         private void MaterialList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+                  
         }
     }
 }

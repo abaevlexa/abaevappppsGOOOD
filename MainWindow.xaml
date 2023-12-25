@@ -13,7 +13,8 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="Azure">
             <Image HorizontalAlignment="Left" Width="78" Margin="19,14,0,37" Source="Resourses\LOGOT.png"/>
-            <TextBlock FontSize="24" Margin="115,26,216,54">Добро пожаловать в ОАО АОКБ Импульс</TextBlock>
+            <TextBlock FontSize="24" Margin="115,26,216,54">ОАО АОКБ Импульс</TextBlock>
+            <Button Name="BtnInfo" Margin="537,0,131,0" Background="Azure" BorderBrush="Azure" Click="BtnInfo_Click">Информация</Button>
             <Button Name="BtnBack" Margin="668,0,0,0" Background="Azure" BorderBrush="Azure" Click="BtnBack_Click">НАЗАД</Button>
         </Grid>
         <Frame Grid.Row="1" Background="Beige" Name="FrmMain" NavigationUIVisibility="Hidden">

@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fb24b48c70eb420dad821485ebcb80d5" Name="Diagram1">
-        <EntityTypeShape EntityType="IMPULSEDBModel.Detail" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMPULSEDBModel.DetailType" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMPULSEDBModel.Role" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMPULSEDBModel.sysdiagrams" Width="1.5" PointX="5" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMPULSEDBModel.User" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="IMPULSEDBModel.FK_Detail_DetailType" ManuallyRouted="false" />
-        <AssociationConnector Association="IMPULSEDBModel.FK_User_Role" ManuallyRouted="false" />
+      <Diagram DiagramId="27d4d69a6df4484bb28d9d258ec82248" Name="Diagram1">
+        <EntityTypeShape EntityType="ImpulsModel.Role" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImpulsModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImpulsModel.User" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImpulsModel.Worker" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImpulsModel.WorkerType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="ImpulsModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ImpulsModel.FK_Worker_WorkerType" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

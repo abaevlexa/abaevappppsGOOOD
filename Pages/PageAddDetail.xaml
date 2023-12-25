@@ -10,15 +10,15 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <Label FontSize="16" FontWeight="Bold">Название:</Label>
+            <Label FontSize="16" FontWeight="Bold">Наименование професии:</Label>
             <TextBox Name="TxbTitle" Height="31"/>
-            <Label FontSize="16" FontWeight="Bold">Дата:</Label>
+            <Label FontSize="16" FontWeight="Bold">Дата регистрации:</Label>
             <TextBox Name="TxbDate" Height="33"/>
-            <Label FontSize="16" FontWeight="Bold">Цена:</Label>
+            <Label FontSize="16" FontWeight="Bold">Зарплата:</Label>
             <TextBox Name="TxbCost" Height="33"/>
             <Label FontSize="16" FontWeight="Bold">Фотография:</Label>
             <TextBox Name="TxbImage" Height="33"/>
-            <Label FontSize="16" FontWeight="Bold">Номер детали:</Label>
+            <Label FontSize="16" FontWeight="Bold">Номер рабочего:</Label>
             <TextBox Name="TxbDetailId" Height="33"/>
 
 
