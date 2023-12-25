@@ -27,19 +27,21 @@
             <TextBox Width="300" FontSize="16" Name="TxbSearch" TextChanged="TxbSearch_TextChanged"/>
 
             <ComboBox Name="CmbSort" SelectionChanged="CmbSort_SelectionChanged"  Margin="5 0" Width="150">
-                <ComboBoxItem Content="Все типы"/>
+                <ComboBoxItem Content="Все профессии"/>
                 <ComboBoxItem Content="Наименование | По возврастанию"/>
                 <ComboBoxItem Content="Наименование | По убыванию"/>
-                <ComboBoxItem Content="Стоимость | По возврастанию"/>
-                <ComboBoxItem Content="Стоимость | По убыванию"/>
+                <ComboBoxItem Content="Зарплата | По возврастанию"/>
+                <ComboBoxItem Content="Зарплата | По убыванию"/>
 
             </ComboBox>
 
             <ComboBox Name="CmbFilter" Width="150" SelectionChanged="CmbFilter_SelectionChanged">
-                <ComboBoxItem Content="Насосы"/>
-                <ComboBoxItem Content="Датчики"/>
-                <ComboBoxItem Content="Реле"/>
-
+                <ComboBoxItem Content="Инженер-электроник"/>
+                <ComboBoxItem Content="Инженер-математик"/>
+                <ComboBoxItem Content="Инженер-технолог"/>
+                <ComboBoxItem Content="Инженер-конструктор"/>
+                <ComboBoxItem Content="Начальник цеха"/>
+                <ComboBoxItem Content="Старший мастер"/>
             </ComboBox>
         </StackPanel>
 
